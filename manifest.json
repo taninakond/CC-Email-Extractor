@@ -1,0 +1,53 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/128.png",
+         "16": "icons/16.png",
+         "32": "icons/32.png",
+         "48": "icons/48.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "__MSG_extName__"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": false,
+      "js": [ "content-script.js" ],
+      "matches": [ "*://*.instagram.com/*" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": false,
+      "js": [ "auth.js" ],
+      "matches": [ "*://*.echobot.dev/auth/success/igemailextractor*" ],
+      "run_at": "document_end"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "default_locale": "en",
+   "description": "__MSG_extDescription__",
+   "homepage_url": "https://igemailextractor.echobot.dev",
+   "host_permissions": [ "https://*.instagram.com/*", "*://*.echobot.dev/*" ],
+   "icons": {
+      "128": "icons/128.png",
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxv9cjNbSgoCT3BunWNh6EmGcV/b9c1SR4qPmUksTc/E615ytXxTpmQ+hyyMuFxjG9WOy984KRo0I4StQpEPsXxuqwt6/GYE3KBk938m47ztogQsk05tHxnQj7J0zUm5yp10e/4R4jI/PHpW+PPlPGC9ICHvHrUApPNS1Jb5hGQpBkv3IMIanamYNmQeL60dbTzf5wk1UUTksA1BS6p1xU7JtmVhNt+20iW8QPhliKJDoFdx4nZwhSsoMxlcvDO79sVOlcmACDCZfZPr82JkJ30+DHSK9NPOJL6NOSQ4jSYbUYTuytJ/iLnzkFU0zqcvQIGKREC4g7g/MHjPFlgclFwIDAQAB",
+   "oauth2": {
+      "client_id": "822420326057-m93k691553m6m1lj3l5jn2r40qjcg7rs.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/userinfo.email" ]
+   },
+   "manifest_version": 3,
+   "name": "__MSG_extName__",
+   "permissions": [ "cookies", "storage", "identity", "unlimitedStorage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.4.0",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "injected.js" ]
+   } ]
+}
